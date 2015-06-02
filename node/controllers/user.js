@@ -129,11 +129,21 @@ exports.setting = function (req, res, next) {
     var signature = validator.trim(req.body.signature);
     signature = validator.escape(signature);
 
+    var student_id = validator.trim(req.body.student_id);
+    student_id = validator.escape(student_id);
+    var school = validator.trim(req.body.school);
+    school = validator.escape(school);
+    var specialty = validator.trim(req.body.specialty);
+    specialty = validator.escape(specialty);
+
     User.getUserById(req.session.user._id, ep.done(function (user) {
       user.url = url;
       user.location = location;
       user.signature = signature;
       user.weibo = weibo;
+      user.student_id = student_id;
+      user.school = school;
+      user.specialty = specialty;
       user.save(function (err) {
         if (err) {
           return next(err);

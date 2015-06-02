@@ -20,8 +20,6 @@ exports.signup = function (req, res, next) {
   var pass = validator.trim(req.body.pass);
   var rePass = validator.trim(req.body.re_pass);
 
-  var student_id = validator.trim(req.body.student_id);
-
   var ep = new eventproxy();
   ep.fail(next);
   ep.on('prop_err', function (msg) {
@@ -65,7 +63,7 @@ exports.signup = function (req, res, next) {
     tools.bhash(pass, ep.done(function (passhash) {
       // create gravatar
       var avatarUrl = User.makeGravatar(email);
-      User.newAndSave(loginname, loginname, passhash, email, avatarUrl, false, student_id, function (err) {
+      User.newAndSave(loginname, loginname, passhash, email, avatarUrl, false, function (err) {
         if (err) {
           return next(err);
         }

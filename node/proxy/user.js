@@ -92,7 +92,7 @@ exports.getUserByNameAndKey = function (loginname, key, callback) {
   User.findOne({loginname: loginname, retrieve_key: key}, callback);
 };
 
-exports.newAndSave = function (name, loginname, pass, email, avatar_url, active, student_id, callback) {
+exports.newAndSave = function (name, loginname, pass, email, avatar_url, active, callback) {
   var user = new User();
   user.name = loginname;
   user.loginname = loginname;
@@ -101,14 +101,11 @@ exports.newAndSave = function (name, loginname, pass, email, avatar_url, active,
   user.avatar = avatar_url;
   user.active = active || false;
   user.accessToken = uuid.v4();
-
-  user.student_id = student_id;
-
   user.save(callback);
 };
 
 var makeGravatar = function (email) {
-  return 'http://www.gravatar.com/avatar/' + utility.md5(email.toLowerCase()) + '?size=48';
+  return 'https://www.gravatar.com/avatar/' + utility.md5(email.toLowerCase()) + '?size=48';
 };
 exports.makeGravatar = makeGravatar;
 
