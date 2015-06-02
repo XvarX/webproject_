@@ -36,9 +36,56 @@
             <input class='input-xlarge readonly' id='email' name='email' size='30' type='text'
                    readonly='true' value="<%= email %>"/>
 
-            <p>同时决定了 Gravatar 头像</p>
+            <!--<p>同时决定了 Gravatar 头像</p>-->
           </div>
         </div>
+
+        <div class='control-group'>
+          <label class='control-label' for='student_id'>学号</label>
+          <div class='controls'>
+            <input class='input-xlarge' id=='student_id' name='student_id' size='30' type='text' 
+                   value="<%= typeof(student_id) !== 'undefined' ? student_id : "" %>">
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='school'>学校</label>
+          <div class='controls'>
+            <input class='input-xlarge' id='school' name='school' size='30' type='text'
+                   value="<%= typeof(school) !== 'undefined' ? school : "" %>">
+          </div>
+        </div>
+        <div class='control-group'>
+          <label class='control-label' for='specialty'>专业</label>
+          <div class='controls'>   <!-- 使用数组存储， 遍历 -->
+            <select id='specialty' class='specialty' name='specialty'>
+              <% if (specialty == '软件工程') { %>
+                <option value='软件工程' selected="selected">软件工程</option>
+              <% } else { %>
+                <option value='软件工程'>软件工程</option>
+              <% } %>
+              <% if (specialty == '信息科学') { %>
+                <option value='信息科学' selected="selected">信息科学</option>
+              <% } else { %>
+                <option value='信息科学'>信息科学</option>
+              <% } %>              <% if (specialty == '法学') { %>
+                <option value='法学' selected="selected">法学</option>
+              <% } else { %>
+                <option value='法学'>法学</option>
+              <% } %>
+              <% if (specialty == '管理学') { %>
+                <option value='管理学' selected="selected">管理学</option>
+              <% } else { %>
+                <option value='管理学'>管理学</option>
+              <% } %>
+              <% if (specialty == '经济学') { %>
+                <option value='经济学' selected="selected">经济学</option>
+              <% } else { %>
+                <option value='经济学'>经济学</option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+
         <div class='control-group'>
           <label class='control-label' for='url'>个人网站</label>
 
