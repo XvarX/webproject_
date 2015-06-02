@@ -23,6 +23,11 @@
             </a>
           </li>
           <%}%>
+          <% if (user.school) { %>
+          <li>
+            <span class='dark'><%= user.school %></span>
+          </li>
+          <% } %>
           <% if (user.url) { %>
           <li>
             <i class="fa fa-lg fa-fw fa-home"></i>

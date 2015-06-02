@@ -20,6 +20,8 @@ var UserSchema = new Schema({
   is_block: {type: Boolean, default: false},
 
   student_id: {type: String},
+  school: {type: String},
+  specialty: {type: String},
 
   score: { type: Number, default: 0 },
   topic_count: { type: Number, default: 0 },
@@ -48,12 +50,12 @@ UserSchema.virtual('avatar_url').get(function () {
   var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=48');
 
   // www.gravatar.com 被墙
-  // url = url.replace('//www.gravatar.com', '//gravatar.com');
+  url = url.replace('//www.gravatar.com', '//gravatar.com');
 
   // 让协议自适应 protocol，使用 `//` 开头
-  // if (url.indexOf('http:') === 0) {
-  //   url = url.slice(5);
-  // }
+   if (url.indexOf('http:') === 0) {
+     url = url.slice(5);
+   }
 
   // 如果是 github 的头像，则限制大小
   if (url.indexOf('githubusercontent') !== -1) {
