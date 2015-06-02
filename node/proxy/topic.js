@@ -214,11 +214,12 @@ exports.reduceCount = function (id, callback) {
   });
 };
 
-exports.newAndSave = function (title, content, tab, authorId, callback) {
+exports.newAndSave = function (title, content, tab, authorId, times,callback) {
   var topic = new Topic();
   topic.title = title;
   topic.content = content;
   topic.tab = tab;
   topic.author_id = authorId;
+  topic.times = times;
   topic.save(callback);
 };

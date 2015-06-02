@@ -122,6 +122,8 @@ exports.put = function (req, res, next) {
   title = validator.escape(title);
   var tab = validator.trim(req.body.tab);
   tab = validator.escape(tab);
+  var times = validator.trim(req.body.times);
+  times = validator.escape(times);
   var content = validator.trim(req.body.t_content);
 
   // 得到所有的 tab, e.g. ['ask', 'share', ..]

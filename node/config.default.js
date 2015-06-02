@@ -11,7 +11,7 @@ var config = {
   get mini_assets() { return !this.debug; }, // 是否启用静态文件的合并压缩，详见视图中的Loader
 
   name: 'Nodeclub', // 社区名字
-  description: 'CNode：Node.js专业中文社区', // 社区的描述
+  description: 'After Class：Help your homework', // 社区的描述
   keywords: 'nodejs, node, express, connect, socket.io',
 
   // 添加到 html head 中的信息
@@ -53,10 +53,10 @@ var config = {
 
   // RSS配置
   rss: {
-    title: 'CNode：Node.js专业中文社区',
+    title: 'After Class：Help your homework',
     link: 'http://cnodejs.org',
     language: 'zh-cn',
-    description: 'CNode：Node.js专业中文社区',
+    description: 'After Class：Help your homework',
     //最多获取的RSS Item数量
     max_rss_items: 50
   },
@@ -66,8 +66,8 @@ var config = {
     host: 'smtp.126.com',
     port: 25,
     auth: {
-      user: 'club@126.com',
-      pass: 'club'
+      user: 'yexangjun@126.com',
+      pass: '19941104'
     }
   },
 
@@ -109,9 +109,10 @@ var config = {
 
   // 版块
   tabs: [
-    ['share', '分享'],
+    ['meaning', ''],
     ['ask', '问答'],
     ['job', '招聘'],
+    ['','']
   ],
 
   // 极光推送

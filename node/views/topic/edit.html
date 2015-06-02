@@ -46,6 +46,17 @@
 
               <%});%>
             </select>
+            <span class="tab-selector">选择课时：</span>
+            <select name="time" id="tab-value">
+              <option value="">请选择</option>
+              <% for(i = 1; i <= 22; i++) {
+                     var value = i;
+                     var text = i;
+                %>
+                <option value="<%=value%>" <%= tabValue === value ? 'selected': '' %>><%=text%></option>
+
+              <%}%>
+            </select>
             <span id="topic_create_warn"></span>
             <textarea autofocus class='span9' id='title' name='title' rows='1'
                       placeholder="标题字数 10 字以上"

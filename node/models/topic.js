@@ -21,6 +21,8 @@ var TopicSchema = new Schema({
   content_is_html: { type: Boolean },
   tab: {type: String},
   deleted: {type: Boolean, default: false},
+  course: {type:String},
+  times: {type:String},
 });
 
 TopicSchema.index({create_at: -1});
