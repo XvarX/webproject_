@@ -11,10 +11,11 @@
       <div class='user_big_avatar'>
         <img src="<%= user.avatar_url %>" class="user_avatar" title="<%= user.loginname %>"/>
       </div>
-      <a class='dark'><%= user.loginname %></a>
+      <a class='dark' id="user_name"><%= user.loginname %></a>
 
-      <div class='user_profile'>
+      <div class='user_profile' id="info_bar">
         <ul class='unstyled'>
+          <i class="fa fa-lg fa-fw fa-check"></i>
           <span class='big'><%= user.score %></span> 积分
           <% if (user.collect_topic_count) {%>
           <li>
@@ -23,9 +24,10 @@
             </a>
           </li>
           <%}%>
-          <% if (user.school) { %>
+          <% if (user.school || user.specialty) { %>    <!-- added -->
           <li>
-            <span class='dark'><%= user.school %></span>
+            <i class="fa fa-lg fa-fw fa-graduation-cap"></i>
+            <span class='dark'><%= user.school %> <%= user.specialty%></span>
           </li>
           <% } %>
           <% if (user.url) { %>
