@@ -17,29 +17,30 @@
         <ul class='unstyled'>
           <i class="fa fa-lg fa-fw fa-check"></i>
           <span class='big'><%= user.score %></span> 积分
-          <% if (user.collect_topic_count) {%>
+<!--          <% if (user.collect_topic_count) {%>
           <li>
             <a class='dark' href="/user/<%= user.loginname %>/collections" target='_blank'>
               <span class='big collect-topic-count'><%= user.collect_topic_count %></span>话题收藏
             </a>
           </li>
           <%}%>
+-->
           <% if (user.school || user.specialty) { %>    <!-- added -->
           <li>
             <i class="fa fa-lg fa-fw fa-graduation-cap"></i>
             <span class='dark'><%= user.school %> <%= user.specialty%></span>
           </li>
           <% } %>
-          <% if (user.url) { %>
-          <li>
-            <i class="fa fa-lg fa-fw fa-home"></i>
-            <a class='dark' href="<%= user.url %>" target='_blank'><%= user.url %></a>
-          </li>
-          <% } %>
           <% if (user.location) { %>
           <li>
             <i class="fa fa-lg fa-fw fa-map-marker"></i>
             <span class='dark'><%= user.location %></span>
+          </li>
+          <% } %>
+          <% if (user.url) { %>
+          <li>
+            <i class="fa fa-lg fa-fw fa-home"></i>
+            <a class='dark' href="<%= user.url %>" target='_blank'><%= user.url %></a>
           </li>
           <% } %>
           <% if (user.githubUsername) { %>
@@ -57,8 +58,13 @@
           </li>
           <% } %>
         </ul>
+        <% if (typeof(current_user) !== 'undefined' && current_user.name == user.name) { %>
+        <div id="edit_div">
+          <i class="fa fa-lg fa-fw fa-pencil-square-o"></i>
+          <a href='/setting'>修改我的资料</a>
+        </div>
+        <% } %>
       </div>
-      <p class='col_fade'>注册时间 <%= user.friendly_create_at %></p>
       <% if (typeof(current_user) !== 'undefined' && current_user.is_admin) { %>
       <% if (!user.is_star) { %>
       <span class='span-common' id='set_star_btn' action='set_star'>设为达人</span>
