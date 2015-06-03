@@ -129,6 +129,8 @@ exports.setting = function (req, res, next) {
     var signature = validator.trim(req.body.signature);
     signature = validator.escape(signature);
 
+    var real_name = validator.trim(req.body.real_name);
+    real_name = validator.escape(real_name);
     var student_id = validator.trim(req.body.student_id);
     student_id = validator.escape(student_id);
     var school = validator.trim(req.body.school);
@@ -144,6 +146,7 @@ exports.setting = function (req, res, next) {
       user.student_id = student_id;
       user.school = school;
       user.specialty = specialty;
+      user.real_name = real_name;
       user.save(function (err) {
         if (err) {
           return next(err);

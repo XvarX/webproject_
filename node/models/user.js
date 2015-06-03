@@ -7,6 +7,11 @@ var UserSchema = new Schema({
   loginname: { type: String},
   pass: { type: String },
   email: { type: String},
+  real_name: {type: String},   //added, 真实姓名
+  user_type:　{type: String},  //added, 账号类型：教师，学生
+  student_id: {type: String},  //added, 学号
+  school: {type: String},      //added, 学校
+  specialty: {type: String},   //added, 专业
   url: { type: String },
   profile_image_url: {type: String},
   location: { type: String },
@@ -18,10 +23,6 @@ var UserSchema = new Schema({
   githubUsername: {type: String},
   githubAccessToken: {type: String},
   is_block: {type: Boolean, default: false},
-
-  student_id: {type: String},
-  school: {type: String},
-  specialty: {type: String},
 
   score: { type: Number, default: 0 },
   topic_count: { type: Number, default: 0 },
@@ -47,7 +48,7 @@ var UserSchema = new Schema({
 });
 
 UserSchema.virtual('avatar_url').get(function () {
-  var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=48');
+  var url = this.avatar || ('https://gravatar.com/avatar/' + utility.md5(this.email.toLowerCase()) + '?size=100');
 
   // www.gravatar.com 被墙
   url = url.replace('//www.gravatar.com', '//gravatar.com');
